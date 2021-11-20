@@ -18,11 +18,9 @@ include("authentication.php");
 <table width="100%" border="1" style="border-collapse:collapse;">
 <thead>
 <tr>
-<!-- <th><strong>S.No</strong></th> -->
-<th><strong>Farm Location</strong></th>
-<th><strong>Acres of Land</strong></th>
-<th><strong>Crop</strong></th>
-<th><strong>Input Cost</strong></th>
+<th><strong>S.No</strong></th>
+<th><strong>Name</strong></th>
+<th><strong>Age</strong></th>
 <th><strong>Edit</strong></th>
 <th><strong>Delete</strong></th>
 </tr>
@@ -30,14 +28,12 @@ include("authentication.php");
 <tbody>
 <?php
 $count=1;
-$sel_query="Select * from farm_records ORDER BY id desc;";
+$sel_query="SELECT * from new_record ORDER BY id desc;";
 $result = mysqli_query($con,$sel_query);
 while($row = mysqli_fetch_assoc($result)) { ?>
 <tr><td align="center"><?php echo $count; ?></td>
-<td align="center"><?php echo $row["FarmLocation"]; ?></td>
-<td align="center"><?php echo $row["acresofland"]; ?></td>
-<td align="center"><?php echo $row["Crop"]; ?></td>
-<td align="center"><?php echo $row["InputCost"]; ?></td>
+<td align="center"><?php echo $row["name"]; ?></td>
+<td align="center"><?php echo $row["age"]; ?></td>
 <td align="center">
 <a href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a>
 </td>

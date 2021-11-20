@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Upload Picture</title>
+<link rel="stylesheet" href="./profile.css">
+</head>
+<body>
+
+<?php
+if(isset($_POST['Submit1']))
+{ 
+$filepath = "images/" . $_FILES["file"]["name"];
+
+if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)) 
+{
+echo "<img src=".$filepath." height=200 width=300 />";
+} 
+else 
+{
+echo "Error !!";
+}
+} 
+?>
+
+<div class="container">
+    <form action="fileupload.php" enctype="multipart/form-data" method="post">
+    Select image :
+    <input type="file" name="file"><br/>
+    <div class="button">
+       <input type="submit" value="Upload" name="Submit1"> <br/>
+       <input type="submit" value="Edit" name="edit"> <br/> 
+       <input type="submit" value="Delete" name="delete"> <br/>
+    </div>
+    </form>
+</div>
+
+</body>
+</html>

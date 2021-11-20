@@ -3,14 +3,15 @@ require('db.php');
 include("authentication.php");
 $status = "";
 if(isset($_POST['new']) && $_POST['new']==1){
-    $FarmLocation =$_REQUEST['flocation'];
-    $acresofland = $_REQUEST['land'];
-    $Crop =$_REQUEST['crop'];
-    $InputCost = $_REQUEST['cost'];
-    $ins_query="insert into farm_records
-    ('flocation','land','crop','cost')values
-    ('$FarmLocation','$acresofland','$Crop','$InputCost')";
-    mysqli_query($con,$ins_query);
+    $trn_date = date("Y-m-d H:i:s");
+    $name =$_REQUEST['name'];
+    $age = $_REQUEST['age'];
+    $submittedby = $_SESSION["username"];
+    $ins_query="insert into new_record
+    (`trn_date`,`name`,`age`,`submittedby`)values
+    ('$trn_date','$name','$age','$submittedby')";
+    mysqli_query($con,$ins_query)
+    or die(mysql_error());
     $status = "New Record Inserted Successfully.
     </br></br><a href='view.php'>View Inserted Record</a>";
 }
@@ -31,10 +32,8 @@ if(isset($_POST['new']) && $_POST['new']==1){
 <h1>Insert New Record</h1>
 <form name="form" method="post" action=""> 
 <input type="hidden" name="new" value="1" />
-<p><input type="text" name="flocation" placeholder="Enter your Farm Location" required /></p>
-<p><input type="text" name="land" placeholder="Enter the acres of Land" required /></p>
-<p><input type="text" name="crop" placeholder="Enter Crop" required /></p>
-<p><input type="text" name="cost" placeholder="Enter Input cost" required /></p>
+<p><input type="text" name="name" placeholder="Enter Name" required /></p>
+<p><input type="text" name="age" placeholder="Enter Age" required /></p>
 <p><input name="submit" type="submit" value="Submit" /></p>
 </form>
 <p style="color:#FF0000;"><?php echo $status; ?></p>

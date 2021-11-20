@@ -29,7 +29,7 @@ if(isset($_POST['new']) && $_POST['new']==1){
 | <a href="view.php">View Records</a> 
 | <a href="logout.php">Logout</a></p>
 <div>
-<h1>Insert New Record</h1>
+<h1>Names of Workers</h1>
 <form name="form" method="post" action=""> 
 <input type="hidden" name="new" value="1" />
 <p><input type="text" name="name" placeholder="Enter Name" required /></p>

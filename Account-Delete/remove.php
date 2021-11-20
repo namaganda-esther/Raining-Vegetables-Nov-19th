@@ -1,8 +1,19 @@
 <?php
+
 require('db.php');
-require('authentication.php');
-$id=$_REQUEST['id'];
-$query = "DELETE FROM Farmers WHERE id=$id"; 
-$result = mysqli_query($con,$query) or die ( mysqli_error());
-header("Location: login.php"); 
+include("authentication.php");
+
+if(mysqli_query($con, "Delete from Farmers where ID=4"))
+{
+echo "Record Deleted Successfully";
+      "</br></br><a href='index.php'>Home</a>";
+}
+else
+{
+echo "Error!!";
+}
+
+//close the connection
+mysqli_close($con);
+
 ?>

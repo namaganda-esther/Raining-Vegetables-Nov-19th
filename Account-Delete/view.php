@@ -14,7 +14,7 @@ include("authentication.php");
 <p><a href="index.php">Home</a> 
 | <a href="insert.php">Insert New Record</a> 
 | <a href="logout.php">Logout</a></p>
-<h2>View Records</h2>
+<h2>View Workers Records</h2>
 <table width="100%" border="1" style="border-collapse:collapse;">
 <thead>
 <tr>

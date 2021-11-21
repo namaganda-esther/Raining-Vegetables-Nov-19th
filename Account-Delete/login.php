@@ -23,7 +23,7 @@ if (isset($_POST['username'])){
 	$rows = mysqli_num_rows($result);
         if($rows==1){
 	    $_SESSION['username'] = $username;
-		$_SESSION['id'] = $rows['id'];
+		// $_SESSION['id'] = $rows['id'];
             // Redirect user to index.php
 	    header("Location: dashboard.php");
          }else{

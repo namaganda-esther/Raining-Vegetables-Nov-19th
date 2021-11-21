@@ -19,10 +19,21 @@ else
 echo "Error !!";
 }
 } 
+
+?>
+<?php
+if(isset($_POST['delete']))
+{ 
+    foreach($_POST['delete'] as $file)
+	{	
+		unlink($path . "/" . $file) or die("Failed to <strong class='highlight'>delete</strong> file");
+	}
+	header("location: " . $_SERVER['REQUEST_URI']);
+} 
 ?>
 
 <div class="container">
-    <form action="fileupload.php" enctype="multipart/form-data" method="post">
+    <form action="profile.php" enctype="multipart/form-data" method="post">
     Select image :
     <input type="file" name="file"><br/>
     <div class="button">
